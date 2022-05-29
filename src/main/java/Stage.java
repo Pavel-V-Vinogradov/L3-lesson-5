@@ -1,8 +1,12 @@
 public abstract class Stage {
     protected int length;
-    protected String description;
-    public String getDescription() {
-        return description;
+
+    public Stage(int length) {
+        if (length <= 0) {
+            throw new RuntimeException("Указана недопустимая длина препятствия");
+        }
+        this.length = length;
     }
+
     public abstract void go(Car c);
 }

@@ -1,18 +1,22 @@
 public class Road extends Stage {
     public Road(int length) {
-        this.length = length;
-        this.description = "Дорога " + length + " метров";
+        super(length);
     }
 
     @Override
-    public void go(Car c) {
+    public void go(Car car) {
         try {
-            System.out.println(c.getName() + " начал этап: " + description);
-            Thread.sleep(length / c.getSpeed() * 1000);
-            System.out.println(c.getName() + " закончил этап: " + description);
+            System.out.println(car + " начал этап: " + this);
+            Thread.sleep(length / car.getSpeed() * 1000L);
+            System.out.println(car + " закончил этап: " + this);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Дорога " + length + " метров";
     }
 }
 
